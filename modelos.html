@@ -25,8 +25,7 @@
   <nav class="nav-links" id="navLinks" aria-label="Páginas">
     <a href="metodologia.html"><span>I</span>Metodología</a>
     <a href="modelos.html" class="active" aria-current="page"><span>II</span>Modelos</a>
-    <a href="terminal.html"><span>III</span>Terminal</a>
-    <a href="contacto.html"><span>IV</span>Contacto</a>
+    <a href="contacto.html"><span>III</span>Contacto</a>
     <a class="nav-links-cta" href="contacto.html#acceso"><span>·</span>Acceso</a>
   </nav>
   <a class="nav-cta" href="contacto.html#acceso">Acceso</a>
@@ -41,50 +40,44 @@
 <header class="page-head">
   <p class="eyebrow reveal">MODELOS</p>
   <h1 class="reveal" style="--d:60ms">La sala de <em>máquinas</em></h1>
-  <p class="lead reveal" style="--d:140ms">El panel interno que sostiene la investigación, replicado aquí de forma ilustrativa:
-    estructura temporal del VIX, percentil de la prima de riesgo de volatilidad, correlaciones cross-asset y un registro
-    de eventos en vivo. La integración de datos de mercado con licencia está en hoja de ruta.</p>
+  <p class="lead reveal" style="--d:140ms">Acceso en vivo a los sistemas cuantitativos de VOLTERRA — exposición gamma,
+    volatilidad, posicionamiento y macro. Selecciona un módulo; el primero se carga automáticamente.</p>
 </header>
 
-<!-- ============ MONITOR ============ -->
-<section class="section section--tight" id="monitor">
-  <div class="monitor reveal">
-    <span class="bk bk1" aria-hidden="true"></span><span class="bk bk2" aria-hidden="true"></span>
-    <span class="bk bk3" aria-hidden="true"></span><span class="bk bk4" aria-hidden="true"></span>
-    <div class="mon-top">
-      <div class="mon-tabs" aria-hidden="true">
-        <span class="on">TERM STRUCTURE</span><span>VRP</span><span>CORRELACIÓN</span><span>REGISTRO</span>
-      </div>
-      <div class="mon-status"><span class="dot-jade" aria-hidden="true"></span><span data-clock>—:—:— UTC</span></div>
-    </div>
-    <div class="mon-grid">
-      <div class="mon-cell">
-        <h3>Estructura temporal VIX <b id="tsState">CONTANGO</b></h3>
-        <div class="fill"><canvas id="tsCanvas" aria-label="Curva de futuros del VIX, ilustrativa"></canvas></div>
-      </div>
-      <div class="mon-cell">
-        <h3>Percentil VRP · ventana 1 año</h3>
-        <div class="fill gauge-wrap">
-          <svg viewBox="0 0 200 118" aria-hidden="true">
-            <path d="M20 106 A80 80 0 0 1 180 106" fill="none" stroke="rgba(201,163,92,.25)" stroke-width="1"/>
-            <g id="gaugeTicks" stroke="rgba(201,163,92,.4)" stroke-width="1"></g>
-            <line id="gaugeNeedle" x1="100" y1="106" x2="100" y2="36" stroke="#66E0C2" stroke-width="1.4"/>
-            <circle cx="100" cy="106" r="3" fill="#C9A35C"/>
-          </svg>
-          <div class="gauge-val"><span id="gaugeVal">42</span> <small>PCTL</small></div>
-        </div>
-      </div>
-      <div class="mon-cell">
-        <h3>Correlaciones cross-asset</h3>
-        <div class="fill"><canvas id="matrixCanvas" aria-label="Matriz de correlaciones, ilustrativa"></canvas></div>
-      </div>
-      <div class="mon-cell">
-        <h3>Registro de eventos</h3>
-        <ul id="logList"></ul>
-      </div>
-    </div>
-    <p class="mon-note">PANEL ILUSTRATIVO CON DATOS ESTILIZADOS · NO CONSTITUYE RECOMENDACIÓN DE INVERSIÓN</p>
+<!-- ============ SISTEMAS EN VIVO ============ -->
+<section class="section section--tight" id="sistemas">
+  <div class="term-tabs reveal" role="tablist" aria-label="Sistemas">
+    <button class="term-tab" role="tab" type="button"
+      data-url="https://gex-intelligence-aag.streamlit.app/"
+      data-name="GEX Intelligence" data-desc="Exposición gamma de dealers por strike y nivel.">
+      <span class="dot" aria-hidden="true"></span>GEX Intelligence</button>
+    <button class="term-tab" role="tab" type="button"
+      data-url="https://vixcontroller.streamlit.app/"
+      data-name="VIX Controller" data-desc="Estructura temporal del VIX y estrategia de volatilidad.">
+      <span class="dot" aria-hidden="true"></span>VIX Controller</button>
+    <button class="term-tab" role="tab" type="button"
+      data-url="https://cot-trading.streamlit.app/"
+      data-name="COT Trading" data-desc="Posicionamiento de operadores — Commitments of Traders.">
+      <span class="dot" aria-hidden="true"></span>COT Trading</button>
+    <button class="term-tab" role="tab" type="button"
+      data-url="https://economic-calendar-4w2hxcbtd5g43x83jn5nso.streamlit.app/"
+      data-name="Economic Calendar" data-desc="Calendario de eventos macro y su impacto.">
+      <span class="dot" aria-hidden="true"></span>Economic Calendar</button>
   </div>
+
+  <p class="term-desc mono reveal" id="termDesc" style="--d:60ms" aria-live="polite"></p>
+
+  <div class="term-frame reveal" style="--d:120ms">
+    <iframe id="termFrame" title="Sistema VOLTERRA" allow="clipboard-write; fullscreen"></iframe>
+    <div class="term-loader" id="termLoader">
+      <span class="ring" aria-hidden="true"></span>
+      <p>Activando sistema…</p>
+    </div>
+  </div>
+
+  <div class="term-open"><a id="termOpen" href="#" target="_blank" rel="noopener">Abrir en pestaña completa ↗</a></div>
+  <p class="term-note">SISTEMAS SERVIDOS POR STREAMLIT · PUEDEN TARDAR UNOS SEGUNDOS EN ACTIVARSE TRAS INACTIVIDAD ·
+    NO CONSTITUYE RECOMENDACIÓN DE INVERSIÓN</p>
 </section>
 
 <!-- ============ ROADMAP ============ -->
@@ -154,7 +147,6 @@
       <a href="index.html">Inicio</a>
       <a href="metodologia.html">Metodología</a>
       <a href="modelos.html">Modelos</a>
-      <a href="terminal.html">Terminal</a>
       <a href="contacto.html">Contacto</a>
     </nav>
   </div>
