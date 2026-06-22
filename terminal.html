@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terminal — VOLTERRA</title>
+<meta name="description" content="Terminal VOLTERRA: acceso en vivo a los sistemas cuantitativos — GEX Intelligence, VIX Controller, COT Trading y Economic Calendar.">
+<meta property="og:title" content="Terminal — VOLTERRA">
+<meta property="og:description" content="Los sistemas cuantitativos, en vivo.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2307080A'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-weight='700' font-size='38' fill='%23C9A35C' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="halo" id="halo" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="index.html" aria-label="VOLTERRA — inicio">VOLTERRA</a>
+  <nav class="nav-links" id="navLinks" aria-label="Páginas">
+    <a href="metodologia.html"><span>I</span>Metodología</a>
+    <a href="modelos.html"><span>II</span>Modelos</a>
+    <a href="terminal.html" class="active" aria-current="page"><span>III</span>Terminal</a>
+    <a href="contacto.html"><span>IV</span>Contacto</a>
+    <a class="nav-links-cta" href="contacto.html#acceso"><span>·</span>Acceso</a>
+  </nav>
+  <a class="nav-cta" href="contacto.html#acceso">Acceso</a>
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+<header class="page-head">
+  <p class="eyebrow reveal">TERMINAL</p>
+  <h1 class="reveal" style="--d:60ms">Los sistemas, <em>en vivo</em></h1>
+  <p class="lead reveal" style="--d:140ms">Acceso directo a los sistemas cuantitativos de VOLTERRA, servidos en tiempo real.
+    Selecciona un módulo; el primero se carga automáticamente.</p>
+</header>
+
+<section class="section section--tight" id="terminal">
+  <div class="term-tabs reveal" role="tablist" aria-label="Sistemas">
+    <button class="term-tab" role="tab" type="button"
+      data-url="https://gex-intelligence-aag.streamlit.app/"
+      data-name="GEX Intelligence" data-desc="Exposición gamma de dealers por strike y nivel.">
+      <span class="dot" aria-hidden="true"></span>GEX Intelligence</button>
+    <button class="term-tab" role="tab" type="button"
+      data-url="https://vixcontroller.streamlit.app/"
+      data-name="VIX Controller" data-desc="Estructura temporal del VIX y estrategia de volatilidad.">
+      <span class="dot" aria-hidden="true"></span>VIX Controller</button>
+    <button class="term-tab" role="tab" type="button"
+      data-url="https://cot-trading.streamlit.app/"
+      data-name="COT Trading" data-desc="Posicionamiento de operadores — Commitments of Traders.">
+      <span class="dot" aria-hidden="true"></span>COT Trading</button>
+    <button class="term-tab" role="tab" type="button"
+      data-url="https://economic-calendar-4w2hxcbtd5g43x83jn5nso.streamlit.app/"
+      data-name="Economic Calendar" data-desc="Calendario de eventos macro y su impacto.">
+      <span class="dot" aria-hidden="true"></span>Economic Calendar</button>
+  </div>
+
+  <p class="term-desc mono reveal" id="termDesc" style="--d:60ms" aria-live="polite"></p>
+
+  <div class="term-frame reveal" style="--d:120ms">
+    <iframe id="termFrame" title="Sistema VOLTERRA" allow="clipboard-write; fullscreen"></iframe>
+    <div class="term-loader" id="termLoader">
+      <span class="ring" aria-hidden="true"></span>
+      <p>Activando sistema…</p>
+    </div>
+  </div>
+
+  <div class="term-open"><a id="termOpen" href="#" target="_blank" rel="noopener">Abrir en pestaña completa ↗</a></div>
+  <p class="term-note">SISTEMAS SERVIDOS POR STREAMLIT · PUEDEN TARDAR UNOS SEGUNDOS EN ACTIVARSE TRAS INACTIVIDAD ·
+    PANEL ILUSTRATIVO, NO CONSTITUYE RECOMENDACIÓN DE INVERSIÓN</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <p class="mono" style="font-size:10px;letter-spacing:.2em;color:var(--muted)">VOLTERRA · INVESTIGACIÓN CUANTITATIVA</p>
+    <nav class="foot-nav" aria-label="Pie de página">
+      <a href="index.html">Inicio</a>
+      <a href="metodologia.html">Metodología</a>
+      <a href="modelos.html">Modelos</a>
+      <a href="terminal.html">Terminal</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+  <p class="foot-brand">VOLTERRA</p>
+  <p class="foot-year">MMXXVI</p>
+  <div class="foot-legal">
+    <p>VOLTERRA es una marca de investigación cuantitativa y posicionamiento. El contenido de este sitio tiene carácter
+    exclusivamente informativo y de presentación de marca: no constituye asesoramiento financiero, recomendación de
+    inversión, oferta ni solicitud de compra o venta de instrumento financiero alguno. Las métricas, los paneles y las
+    series de este sitio tienen carácter ilustrativo y están estilizados con fines de diseño.</p>
+    <p>La operativa con derivados de volatilidad implica riesgos significativos, incluida la pérdida del capital
+    invertido, y no resulta adecuada para todos los inversores. Rentabilidades pasadas no garantizan resultados
+    futuros. La información de este sitio se dirige exclusivamente a inversores profesionales y contrapartes
+    elegibles, conforme a la normativa aplicable.</p>
+  </div>
+  <p class="foot-tick" aria-hidden="true">
+    VIX <b data-tel="vix2">16.42</b> · VVIX <b data-tel="vvix2">91.78</b> · M1–M2 <b data-tel="slope3">+0.84</b>
+  </p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

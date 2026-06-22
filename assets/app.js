@@ -619,4 +619,28 @@ function runDecode(el){
   });
 })();
 
+/* ============ terminal: apps embebidas ============ */
+(function(){
+  var frame=$('#termFrame'); if(!frame)return;
+  var tabs=$$('.term-tab'), loader=$('#termLoader'), openLink=$('#termOpen'), desc=$('#termDesc');
+  var current=null;
+  function load(tab){
+    if(!tab||tab===current)return;
+    current=tab;
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t===tab?'true':'false')});
+    var url=tab.getAttribute('data-url');
+    if(loader)loader.classList.remove('hidden');
+    if(desc)desc.textContent=tab.getAttribute('data-desc')||'';
+    if(openLink)openLink.href=url;
+    frame.setAttribute('title',tab.getAttribute('data-name')||'Sistema VOLTERRA');
+    frame.src=url+(url.indexOf('?')>=0?'&':'?')+'embed=true';
+  }
+  frame.addEventListener('load',function(){ if(loader&&current)loader.classList.add('hidden'); });
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){load(t)});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();load(t)}});
+  });
+  if(tabs.length)load(tabs[0]);
+})();
+
 })();
